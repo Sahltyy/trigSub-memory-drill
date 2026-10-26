@@ -1,0 +1,646 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#2d9442"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Trig Sub"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="icon" type="image/png" href="icons/icon-192.png"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Trig Sub Drill</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caveat:wght@600;700&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+<style>
+/* Layout: one narrow column of marker-ruled notebook cards on green graph paper, echoing her highlighted table */
+:root{
+  --paper:#f9fbf5; --grid:#e1ecdd; --ink:#1b281f; --muted:#56675b; --card:#ffffff; --rule:#cbdcc7;
+  --marker:#2d9442; --on-marker:#ffffff; --marker-hl:#c2e9c2;
+  --hl-pink:#ffb5c4; --hl-blue:#a6e2f3; --hl-orange:#ffd09a;
+  --conf-1:#ff6f8e; --conf-2:#2fb3dc; --conf-3:#ff9f2e; --conf-4:#2d9442;
+  --ok:#1a7641; --ok-bg:#e3f3e7; --bad:#bb2d45; --bad-bg:#fbe8ec;
+  --key:#eef5eb;
+  --f-hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+  --f-ui:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-math:"STIX Two Text","Cambria Math","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111813; --grid:#1a241d; --ink:#e4ede6; --muted:#9aae9f; --card:#172019; --rule:#2c3b31;
+    --marker:#5cc96c; --on-marker:#0d1710; --marker-hl:rgba(92,201,108,.26);
+    --hl-pink:rgba(255,118,152,.34); --hl-blue:rgba(80,196,238,.32); --hl-orange:rgba(255,166,74,.34);
+    --ok:#72d98f; --ok-bg:rgba(114,217,143,.12); --bad:#ff8297; --bad-bg:rgba(255,130,151,.13);
+    --key:#1f2b23; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111813; --grid:#1a241d; --ink:#e4ede6; --muted:#9aae9f; --card:#172019; --rule:#2c3b31;
+  --marker:#5cc96c; --on-marker:#0d1710; --marker-hl:rgba(92,201,108,.26);
+  --hl-pink:rgba(255,118,152,.34); --hl-blue:rgba(80,196,238,.32); --hl-orange:rgba(255,166,74,.34);
+  --ok:#72d98f; --ok-bg:rgba(114,217,143,.12); --bad:#ff8297; --bad-bg:rgba(255,130,151,.13);
+  --key:#1f2b23; color-scheme:dark;
+}
+
+html{ -webkit-text-size-adjust:100%; }
+body{
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:22px 22px;
+  color:var(--ink); font-family:var(--f-ui); font-size:16px; line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:20px 48px;
+}
+.wrap{ max-width:560px; margin:0 auto; display:flex; flex-direction:column; gap:16px; }
+
+header{ display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:8px 12px; }
+.titles{ display:flex; flex-direction:column; gap:4px; min-width:0; }
+h1{ font-family:var(--f-hand); font-size:2.7rem; line-height:1; margin:0; font-weight:700; text-wrap:balance; }
+.sub{ margin:0; color:var(--muted); font-size:.95rem; }
+
+.hl{ background:var(--c,var(--marker-hl)); padding:.02em .38em .08em; border-radius:.25em .7em .3em .6em;
+  -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+.hl-green{ --c:var(--marker-hl); } .hl-pink{ --c:var(--hl-pink); } .hl-blue{ --c:var(--hl-blue); } .hl-orange{ --c:var(--hl-orange); }
+
+.tabs{ display:grid; grid-template-columns:repeat(3,1fr); gap:6px; background:var(--card);
+  border:2px solid var(--marker); border-radius:14px; padding:5px; }
+.tabs button{ font:inherit; font-weight:700; font-size:.92rem; border:0; background:transparent; color:var(--muted);
+  padding:9px 4px; border-radius:9px; cursor:pointer; }
+.tabs button[aria-selected="true"]{ background:var(--marker-hl); color:var(--ink); }
+.tabs{ grid-template-columns:repeat(2,1fr); }
+@media (min-width:480px){ .tabs{ grid-template-columns:repeat(4,1fr); } }
+
+.modes{ display:flex; flex-wrap:wrap; gap:8px; }
+.modes .btn[aria-pressed="true"]{ background:var(--marker-hl); border-color:var(--marker); }
+.rvbtn{ font:inherit; font-size:.92rem; font-weight:700; color:var(--muted); width:100%; min-height:48px;
+  border:2px dashed var(--rule); border-radius:10px; background:transparent; cursor:pointer; touch-action:manipulation; }
+.rvbtn:hover{ border-color:var(--marker); color:var(--ink); }
+.rvval{ font-family:var(--f-math); font-size:1.3rem; padding:6px 2px; min-height:48px; display:flex; align-items:center;
+  border-bottom:2px solid var(--rule); overflow-x:auto; border-radius:6px 6px 0 0; }
+.rvval.fresh{ animation:rvpop .6s ease-out; }
+@keyframes rvpop{ from{ background:var(--marker-hl); } to{ background:transparent; } }
+
+.card{ background:var(--card); border:2px solid var(--marker); border-radius:16px 20px 15px 22px;
+  padding:18px; display:flex; flex-direction:column; gap:16px; }
+.qtop{ display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+.eyebrow{ font-size:.76rem; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:700; margin:0; }
+.dots{ display:flex; gap:6px; }
+.dot{ width:12px; height:12px; border-radius:50%; border:2px solid var(--rule); }
+.dot.cur{ border-color:var(--marker); }
+.dot.ok{ background:var(--ok); border-color:var(--ok); }
+.dot.bad{ background:var(--bad); border-color:var(--bad); }
+
+.clue{ display:flex; flex-direction:column; gap:4px; }
+.prompt{ margin:0; color:var(--muted); font-size:1.02rem; }
+.lead{ margin:0; font-size:1.08rem; font-weight:700; text-wrap:balance; }
+.cluemath{ margin:0; font-family:var(--f-math); font-size:clamp(1.45rem,6.4vw,1.95rem); line-height:1.25; }
+.hint{ margin:0; font-size:.9rem; color:var(--muted); }
+
+.fields{ display:flex; flex-direction:column; gap:14px; }
+.field{ display:flex; flex-direction:column; gap:4px; min-width:0; }
+.lab{ font-family:var(--f-hand); font-size:1.45rem; font-weight:700; line-height:1.15; align-self:flex-start; }
+input.mi{ font-family:var(--f-math); font-size:1.3rem; color:var(--ink); background:transparent; width:100%;
+  border:0; border-bottom:2px solid var(--rule); border-radius:0; padding:6px 2px; outline:none; }
+input.mi::placeholder{ color:var(--muted); opacity:.55; }
+input.mi:focus{ border-bottom-color:var(--marker); }
+input.mi[readonly]{ color:var(--ink); }
+.field.ok input.mi{ border-bottom-color:var(--ok); }
+.field.bad input.mi{ border-bottom-color:var(--bad); }
+.given .gv{ font-family:var(--f-math); font-size:1.3rem; padding:6px 2px; border-bottom:2px dashed var(--rule);
+  display:flex; justify-content:space-between; align-items:baseline; gap:8px; flex-wrap:wrap; }
+.tag{ font-family:var(--f-ui); font-size:.7rem; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:700; }
+
+.fb{ font-size:.93rem; display:flex; flex-direction:column; gap:4px; }
+.fb:empty{ display:none; }
+.okt{ color:var(--ok); font-weight:700; }
+.badt{ color:var(--bad); font-weight:700; }
+.ans{ background:var(--bad-bg); border-radius:8px; padding:6px 10px; overflow-x:auto; }
+
+.m{ font-family:var(--f-math); font-size:1.08em; white-space:nowrap; }
+.fn{ font-style:normal; }
+.rt{ white-space:nowrap; }
+.rs{ font-size:1.05em; }
+.vn{ display:inline-block; border-top:.075em solid currentColor; padding:.04em .14em 0; line-height:1.2; }
+
+.keybar{ display:flex; flex-wrap:wrap; gap:6px; padding-top:8px; }
+.keybar button{ font-family:var(--f-math); font-size:1.1rem; min-width:42px; height:40px; padding:0 10px;
+  border-radius:9px; border:1px solid var(--rule); background:var(--key); color:var(--ink); cursor:pointer;
+  touch-action:manipulation; -webkit-user-select:none; user-select:none; }
+.keybar button:active{ background:var(--marker-hl); }
+
+.think{ border-top:2px dashed var(--rule); padding-top:14px; display:flex; flex-direction:column; gap:8px; }
+.think h3{ margin:0; font-family:var(--f-hand); font-size:1.55rem; line-height:1.1; }
+.think ol{ margin:0; padding-left:1.3em; display:flex; flex-direction:column; gap:6px; }
+.rowchip{ font-weight:700; }
+
+.actions{ display:flex; gap:10px; flex-wrap:wrap; }
+.actions .primary{ flex:1 1 auto; }
+.btn{ font:inherit; font-weight:700; border-radius:12px; padding:12px 18px; cursor:pointer; border:2px solid var(--marker); }
+.btn.primary{ background:var(--marker); color:var(--on-marker); }
+.btn.ghost{ background:transparent; color:var(--ink); border-color:var(--rule); }
+.btn.small{ padding:7px 12px; font-size:.88rem; border-radius:10px; }
+.btn[data-armed]{ border-color:var(--bad); color:var(--bad); }
+button:focus-visible{ outline:3px solid var(--marker); outline-offset:2px; }
+
+.roundbar{ display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+.score{ color:var(--muted); font-size:.92rem; font-variant-numeric:tabular-nums; }
+
+.big{ margin:0; font-family:var(--f-hand); font-size:2.6rem; line-height:1.05; font-weight:700; }
+.done h3{ margin:0 0 6px; font-family:var(--f-hand); font-size:1.55rem; }
+.misses{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px; }
+.misses li{ display:flex; flex-direction:column; gap:3px; padding:10px 12px; border-radius:10px; background:var(--bad-bg); overflow-x:auto; }
+.mlabel{ color:var(--muted); font-size:.9rem; }
+
+.trow{ position:relative; isolation:isolate; display:flex; flex-direction:column; gap:10px; padding:14px; border-radius:12px; border:1.5px solid var(--rule); }
+.trow::before{ content:""; position:absolute; inset:0; border-radius:inherit; background:var(--c,transparent); opacity:.3; z-index:-1; }
+.trowhead{ display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap; }
+.rowname{ font-family:var(--f-hand); font-size:1.6rem; font-weight:700; line-height:1; }
+.rowtag{ font-size:.88rem; font-weight:700; }
+.tgrid{ display:flex; flex-direction:column; gap:12px; }
+.tsum{ margin:0; font-weight:700; font-size:1.05rem; }
+
+.sheetrow dl{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 14px; margin:0; align-items:baseline; }
+.sheetrow dt{ font-family:var(--f-hand); font-size:1.35rem; font-weight:700; line-height:1.1; }
+.sheetrow dd{ margin:0; font-family:var(--f-math); font-size:1.2rem; min-width:0; overflow-x:auto; }
+.spot{ margin:0; color:var(--muted); }
+.chainwrap{ display:flex; flex-direction:column; gap:6px; }
+.chainwrap h3, .derive h3{ margin:0; font-family:var(--f-hand); font-size:1.45rem; line-height:1.1; }
+.chain{ overflow-x:auto; font-family:var(--f-math); font-size:1.12rem; display:flex; flex-direction:column; gap:3px; }
+.chain span{ white-space:nowrap; }
+.derive{ display:flex; flex-direction:column; gap:8px; }
+.derive .root{ margin:0; font-family:var(--f-math); font-size:1.5rem; }
+.derive ol{ margin:0; padding-left:1.3em; display:flex; flex-direction:column; gap:8px; }
+.derive li span.step{ display:block; color:var(--muted); font-size:.92rem; }
+
+.foot{ margin:0; color:var(--muted); font-size:.86rem; }
+#fx{ position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:50; }
+
+@media (min-width:540px){
+  .tgrid{ display:grid; grid-template-columns:1fr 1fr; gap:12px 18px; }
+}
+@media (prefers-reduced-motion: reduce){ *{ transition:none!important; animation:none!important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="titles">
+      <h1><span class="hl hl-green">Trig Sub Drill</span></h1>
+      <p class="sub">Calc 2 · fill in the whole row from memory</p>
+    </div>
+    <button class="btn ghost small" id="snd" aria-pressed="true">Sound on</button>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Mode">
+    <button role="tab" id="tab-reveal" data-tab="reveal" aria-controls="view-reveal" aria-selected="false">Tap to reveal</button>
+    <button role="tab" id="tab-clue" data-tab="clue" aria-controls="view-clue" aria-selected="true">Clue round</button>
+    <button role="tab" id="tab-table" data-tab="table" aria-controls="view-table" aria-selected="false">Blank table</button>
+    <button role="tab" id="tab-sheet" data-tab="sheet" aria-controls="view-sheet" aria-selected="false">Cheat sheet</button>
+  </nav>
+
+  <section id="view-reveal" role="tabpanel" aria-labelledby="tab-reveal" hidden></section>
+  <section id="view-clue" role="tabpanel" aria-labelledby="tab-clue"></section>
+  <section id="view-table" role="tabpanel" aria-labelledby="tab-table" hidden></section>
+  <section id="view-sheet" role="tabpanel" aria-labelledby="tab-sheet" hidden></section>
+
+  <p class="foot">Typing shortcuts: <b>^2</b>, <b>theta</b> and <b>sqrt</b> turn into ², θ and √ as you type. Spaces, * and extra ( ) don't matter.</p>
+
+  <div id="park" hidden>
+    <div class="keybar" id="keybar" role="group" aria-label="Math symbols">
+      <button type="button" data-ins="√()" data-back="1">√( )</button>
+      <button type="button" data-ins="²">²</button>
+      <button type="button" data-ins="θ">θ</button>
+      <button type="button" data-ins=" dθ">dθ</button>
+      <button type="button" data-ins=" − ">−</button>
+      <button type="button" data-ins=" + ">+</button>
+      <button type="button" data-ins=" = ">=</button>
+      <button type="button" data-ins="(">(</button>
+      <button type="button" data-ins=")">)</button>
+      <button type="button" data-ins="sin ">sin</button>
+      <button type="button" data-ins="cos ">cos</button>
+      <button type="button" data-ins="tan ">tan</button>
+      <button type="button" data-ins="sec ">sec</button>
+    </div>
+  </div>
+</div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<script>
+/* ---------- math formatting ---------- */
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function itl(t){
+  return esc(t).replace(/(sin|cos|tan|sec)|([axθ])/g,(mm,f,v)=> f ? '<span class="fn">'+f+'</span>' : '<i>'+v+'</i>');
+}
+function fmt(s){
+  let out='', i=0;
+  while(i<s.length){
+    const k=s.indexOf('√(',i);
+    if(k<0){ out+=itl(s.slice(i)); break; }
+    out+=itl(s.slice(i,k));
+    let d=0, j=k+1;
+    for(;j<s.length;j++){ if(s[j]==='(') d++; else if(s[j]===')'){ d--; if(d===0) break; } }
+    out+='<span class="rt"><span class="rs">√</span><span class="vn">'+fmt(s.slice(k+2,j))+'</span></span>';
+    i=j+1;
+  }
+  return out;
+}
+function m(s){ return '<span class="m">'+fmt(s)+'</span>'; }
+
+/* ---------- the table ---------- */
+const COLS=['rad','sub','iden','dx'];
+const COLHEAD={rad:'Radical form',sub:'Sub',iden:'Identity',dx:'dx'};
+const COLNAME={rad:'radical form',sub:'sub',iden:'identity',dx:'dx'};
+const CLUEPHRASE={rad:'The radical form is',sub:'The sub is',iden:'The identity is',dx:'The dx is'};
+const PH={rad:'√( … )',sub:'x = …',iden:'… = …',dx:'dx = …'};
+
+const ROWS=[
+  { color:'pink', hl:'hl-pink',
+    rad:'√(a² − x²)', sub:'x = a sin θ', iden:'1 − sin²θ = cos²θ', dx:'dx = a cos θ dθ',
+    acc:{ rad:['√a²-x²'], sub:['asinθ'], iden:['1-sin²=cos²','cos²=1-sin²'], dx:['acosθdθ'] },
+    spot:'Number first, then minus x².',
+    think:[
+      'See '+m('a²')+' <b>minus</b> '+m('x²')+'. The number comes first.',
+      'That has the same shape as '+m('1 − sin²θ = cos²θ')+'.',
+      'So the sub is '+m('x = a sin θ')+'.',
+      'The derivative of sin is cos, so '+m('dx = a cos θ dθ')+'.'
+    ],
+    chain:['√(a² − x²)','√(a² − (a sin θ)²)','√(a² − a² sin²θ)','√(a²(1 − sin²θ))','√(a² cos²θ)','a cos θ']
+  },
+  { color:'blue', hl:'hl-blue',
+    rad:'√(a² + x²)', sub:'x = a tan θ', iden:'1 + tan²θ = sec²θ', dx:'dx = a sec²θ dθ',
+    acc:{ rad:['√a²+x²','√x²+a²'], sub:['atanθ'], iden:['1+tan²=sec²','tan²+1=sec²','sec²=1+tan²','sec²=tan²+1'], dx:['asec²θdθ'] },
+    spot:'Any plus sign.',
+    think:[
+      'See a <b>plus</b> sign.',
+      'That has the same shape as '+m('1 + tan²θ = sec²θ')+'.',
+      'So the sub is '+m('x = a tan θ')+'.',
+      'The derivative of tan is sec², so '+m('dx = a sec²θ dθ')+'.'
+    ],
+    chain:['√(a² + x²)','√(a² + (a tan θ)²)','√(a² + a² tan²θ)','√(a²(1 + tan²θ))','√(a² sec²θ)','a sec θ']
+  },
+  { color:'orange', hl:'hl-orange',
+    rad:'√(x² − a²)', sub:'x = a sec θ', iden:'sec²θ − 1 = tan²θ', dx:'dx = a sec θ tan θ dθ',
+    acc:{ rad:['√x²-a²'], sub:['asecθ'], iden:['sec²-1=tan²','tan²=sec²-1'], dx:['asecθtanθdθ','atanθsecθdθ'] },
+    spot:'x² first, then minus the number.',
+    think:[
+      'See '+m('x²')+' <b>minus</b> '+m('a²')+'. The x comes first.',
+      'That has the same shape as '+m('sec²θ − 1 = tan²θ')+'.',
+      'So the sub is '+m('x = a sec θ')+'.',
+      'The derivative of sec is sec tan, so '+m('dx = a sec θ tan θ dθ')+'. Times, not plus.'
+    ],
+    chain:['√(x² − a²)','√((a sec θ)² − a²)','√(a² sec²θ − a²)','√(a²(sec²θ − 1))','√(a² tan²θ)','a tan θ']
+  }
+];
+
+/* ---------- forgiving grader ---------- */
+function canon(s){
+  s=(s||'').toLowerCase();
+  s=s.replace(/theta/g,'θ').replace(/ϑ/g,'θ').replace(/sqrt/g,'√');
+  s=s.replace(/[−–—]/g,'-');
+  s=s.replace(/\*\*\s*2|\^\s*\(?\s*2\s*\)?/g,'²');
+  s=s.replace(/[\s*·×⋅]/g,'');
+  s=s.replace(/[(){}\[\]]/g,'');
+  s=s.replace(/([a-zθ])2/g,'$1²');
+  s=s.replace(/(sin|cos|tan|sec)θ²/g,'$1²θ');
+  return s;
+}
+const NORM={
+  rad:s=>canon(s),
+  sub:s=>canon(s).replace(/^x=/,''),
+  iden:s=>canon(s).replace(/[θx]/g,''),
+  dx:s=>canon(s).replace(/^dx=/,'')
+};
+const PARENT=['sin²+cos²=1','cos²+sin²=1','1=sin²+cos²','1=cos²+sin²'];
+function grade(col,r,raw){
+  const n=NORM[col](raw);
+  if(!n) return {ok:false,msg:'Left blank'};
+  const acc=ROWS[r].acc[col];
+  if(acc.includes(n)) return {ok:true};
+  for(let o=0;o<ROWS.length;o++){
+    if(o!==r && ROWS[o].acc[col].includes(n)){
+      return {ok:false,msg: col==='rad' ? 'That radical goes with '+m(ROWS[o].sub)+'.' : 'That\'s the '+COLNAME[col]+' for '+m(ROWS[o].rad)+'.'};
+    }
+  }
+  if(col==='rad' && acc.includes('√'+n)) return {ok:false,msg:'Close. Put it under a √.'};
+  if(col==='iden' && PARENT.includes(n)) return {ok:false,msg:'That\'s the parent identity. Rearrange it for this row.'};
+  if(col==='dx'){
+    if(r===2 && n.includes('+')) return {ok:false,msg:'Close. It\'s sec θ <b>times</b> tan θ, not plus.'};
+    if(acc.includes(n+'dθ')) return {ok:false,msg:'Close. Don\'t forget the dθ at the end.'};
+    if(n.endsWith('dx') && acc.includes(n.slice(0,-2)+'dθ')) return {ok:false,msg:'Close. It ends in dθ, not dx.'};
+  }
+  if((col==='sub'||col==='dx') && acc.includes('a'+n)) return {ok:false,msg:'Close. You\'re missing the a in front.'};
+  const strip=t=>t.replace(/θ/g,'');
+  if(acc.some(a=>strip(a)===strip(n))) return {ok:false,msg:'Close. Every trig function needs its θ.'};
+  return {ok:false};
+}
+function fbHTML(g,row,col){
+  if(g.ok) return '<span class="okt">✓ Got it</span>';
+  return '<span class="badt">✗ '+(g.msg||'Not quite')+'</span><div class="ans">Answer: '+m(row[col])+'</div>';
+}
+
+/* ---------- helpers ---------- */
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.random()*(i+1)|0; [a[i],a[j]]=[a[j],a[i]]; } return a; }
+const INATTR='autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="next"';
+
+if(typeof document!=='undefined') init();
+
+function init(){
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const keybar=$('#keybar'), park=$('#park');
+  let lastInput=null;
+  function parkKeys(){ park.appendChild(keybar); lastInput=null; }
+
+  /* sound */
+  let soundOn=true, actx=null;
+  try{ soundOn=localStorage.getItem('tsd-sound')!=='off'; }catch(e){}
+  function setSoundLabel(){ const b=$('#snd'); b.textContent=soundOn?'Sound on':'Sound off'; b.setAttribute('aria-pressed',String(soundOn)); }
+  function tone(f,t0,d,type,v){
+    const o=actx.createOscillator(), g=actx.createGain(), t=actx.currentTime+t0;
+    o.type=type||'sine'; o.frequency.value=f;
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(v||.08,t+.015); g.gain.exponentialRampToValueAtTime(.0001,t+d);
+    o.connect(g); g.connect(actx.destination); o.start(t); o.stop(t+d+.05);
+  }
+  function play(kind){
+    if(!soundOn) return;
+    try{
+      actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+      if(actx.state==='suspended') actx.resume();
+      if(kind==='ok'){ tone(660,0,.18); tone(880,.1,.28); }
+      else if(kind==='bad'){ tone(220,0,.25,'triangle',.06); }
+      else if(kind==='tick'){ tone(740,0,.09,'sine',.05); }
+      else if(kind==='win'){ [523,659,784,1047].forEach((f,i)=>tone(f,i*.09,.35)); }
+    }catch(e){}
+  }
+
+  /* confetti */
+  function confetti(){
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const c=$('#fx'), ctx=c.getContext('2d'), dpr=Math.min(2,window.devicePixelRatio||1);
+    const W=innerWidth, H=innerHeight; c.width=W*dpr; c.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    const cs=getComputedStyle(document.documentElement);
+    const cols=[1,2,3,4].map(i=>cs.getPropertyValue('--conf-'+i).trim());
+    const P=Array.from({length:90},()=>({x:W/2+(Math.random()-.5)*90,y:H*.38,vx:(Math.random()-.5)*10,vy:-Math.random()*10-4,
+      r:Math.random()*Math.PI,vr:(Math.random()-.5)*.3,w:6+Math.random()*6,h:3+Math.random()*4,c:cols[Math.random()*4|0]}));
+    const t0=performance.now(); let last=t0;
+    function frame(t){
+      const dt=Math.min(32,t-last)/16; last=t;
+      ctx.clearRect(0,0,W,H);
+      P.forEach(p=>{ p.vy+=.35*dt; p.vx*=.99; p.x+=p.vx*dt; p.y+=p.vy*dt; p.r+=p.vr*dt;
+        ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.r); ctx.fillStyle=p.c; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); ctx.restore(); });
+      if(t-t0<1900) requestAnimationFrame(frame); else ctx.clearRect(0,0,W,H);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* two-tap confirm */
+  function confirmTap(btn,label,action){
+    if(btn.dataset.armed){ clearTimeout(btn._t); delete btn.dataset.armed; btn.textContent=label; action(); }
+    else{ btn.dataset.armed='1'; btn.textContent='Tap again to '+label.toLowerCase();
+      btn._t=setTimeout(()=>{ delete btn.dataset.armed; btn.textContent=label; },3000); }
+  }
+
+  /* ===== Clue round ===== */
+  let round=[], qi=0, results=[], phase='ask';
+  function newRound(){
+    round=[];
+    ROWS.forEach((_,i)=> shuffle(COLS.slice()).slice(0,2).forEach(clue=>round.push({row:i,clue})));
+    shuffle(round);
+    for(let i=1;i<round.length;i++){
+      if(round[i].row===round[i-1].row){
+        const j=round.findIndex((q,k)=>k>i && q.row!==round[i-1].row);
+        if(j>0) [round[i],round[j]]=[round[j],round[i]];
+      }
+    }
+    qi=0; results=[]; phase='ask';
+    renderClue();
+  }
+  function scoreLine(){
+    if(!results.length) return 'Each row: get all 3 boxes for a green dot';
+    const p=results.filter(r=>r.right===r.total).length, b=results.reduce((a,r)=>a+r.right,0), t=results.reduce((a,r)=>a+r.total,0);
+    return p+' perfect · '+b+'/'+t+' boxes';
+  }
+  function renderClue(){
+    parkKeys();
+    const v=$('#view-clue');
+    if(qi>=round.length){ v.innerHTML=doneHTML(); return; }
+    const q=round[qi], row=ROWS[q.row];
+    const dots=round.map((_,i)=>{ const r=results[i]; const cls=r?(r.right===r.total?'ok':'bad'):(i===qi?'cur':''); return '<span class="dot '+cls+'"></span>'; }).join('');
+    const fields=COLS.map(col=> col===q.clue
+      ? '<div class="field given"><span class="lab hl hl-green">'+COLHEAD[col]+'</span><div class="gv"><span>'+fmt(row[col])+'</span><span class="tag">Given</span></div></div>'
+      : '<div class="field" data-col="'+col+'"><label class="lab hl hl-green" for="q-'+col+'">'+COLHEAD[col]+'</label><input class="mi" id="q-'+col+'" '+INATTR+' placeholder="'+PH[col]+'"><div class="fb" aria-live="polite"></div></div>'
+    ).join('');
+    v.innerHTML=
+      '<div class="card">'+
+        '<div class="qtop"><span class="eyebrow">Question '+(qi+1)+' of '+round.length+'</span><span class="dots" aria-hidden="true">'+dots+'</span></div>'+
+        '<div class="clue"><p class="prompt">'+CLUEPHRASE[q.clue]+'</p><p class="cluemath">'+fmt(row[q.clue])+'</p><p class="hint">Type the other three boxes for this row.</p></div>'+
+        '<div class="fields">'+fields+'</div>'+
+        '<div class="think" id="q-think" hidden></div>'+
+        '<div class="actions"><button class="btn primary" data-act="check" id="q-go">Check</button></div>'+
+      '</div>'+
+      '<div class="roundbar"><span class="score">'+scoreLine()+'</span><button class="btn ghost small" data-act="restart" id="q-restart">Restart round</button></div>';
+    phase='ask';
+  }
+  function checkClue(){
+    const q=round[qi], row=ROWS[q.row]; let right=0, total=0; const missed=[];
+    COLS.forEach(col=>{
+      if(col===q.clue) return;
+      total++;
+      const inp=$('#q-'+col), f=inp.closest('.field'), g=grade(col,q.row,inp.value);
+      f.classList.add(g.ok?'ok':'bad'); inp.readOnly=true;
+      f.querySelector('.fb').innerHTML=fbHTML(g,row,col);
+      if(g.ok) right++; else missed.push(col);
+    });
+    parkKeys();
+    results[qi]={row:q.row,clue:q.clue,right,total,missed};
+    const th=$('#q-think');
+    th.innerHTML='<div class="rowchip"><span class="hl '+row.hl+'">Row '+(q.row+1)+' · the '+row.color+' one</span></div><h3>How to think it</h3><ol>'+row.think.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
+    th.hidden=false;
+    const go=$('#q-go'); go.dataset.act='next'; go.textContent=qi===round.length-1?'See my score':'Next question';
+    $('.dots').children[qi].className='dot '+(right===total?'ok':'bad');
+    $('.score').textContent=scoreLine();
+    if(right===total){ play('ok'); confetti(); } else play('bad');
+    phase='checked';
+    go.focus({preventScroll:true});
+  }
+  function doneHTML(){
+    const p=results.filter(r=>r.right===r.total).length, b=results.reduce((a,r)=>a+r.right,0), t=results.reduce((a,r)=>a+r.total,0);
+    const misses=results.filter(r=>r.right<r.total).map(r=>{
+      const row=ROWS[r.row];
+      return '<li><span class="mlabel">Given '+m(row[r.clue])+'</span>'+r.missed.map(c=>'<span>'+COLHEAD[c]+': '+m(row[c])+'</span>').join('')+'</li>';
+    }).join('');
+    return '<div class="card done"><p class="eyebrow">Round done</p><p class="big">'+p+' of '+results.length+' rows perfect</p><p class="prompt">'+b+' of '+t+' boxes right</p>'+
+      (misses?'<div><h3>Go over these</h3><ul class="misses">'+misses+'</ul></div>':'<p class="lead">Every box right. This table is yours.</p>')+
+      '<div class="actions"><button class="btn primary" data-act="newround">New round</button></div></div>';
+  }
+
+  /* ===== Blank table ===== */
+  function renderTable(){
+    parkKeys();
+    const rows=[0,1,2].map(s=>
+      '<div class="trow" id="trow-'+s+'"><div class="trowhead"><span class="rowname">Row '+(s+1)+'</span><span class="rowtag" id="ttag-'+s+'"></span></div>'+
+      '<div class="tgrid">'+COLS.map(col=>'<div class="field" data-col="'+col+'"><label class="lab hl hl-green" for="t-'+s+'-'+col+'">'+COLHEAD[col]+'</label><input class="mi" id="t-'+s+'-'+col+'" '+INATTR+'><div class="fb" aria-live="polite"></div></div>').join('')+'</div>'+
+      '<div class="think" id="tthink-'+s+'" hidden></div></div>'
+    ).join('');
+    $('#view-table').innerHTML=
+      '<div class="card"><div class="clue"><p class="eyebrow">Brain dump</p><p class="lead">Write the whole table from memory, like the start of the test.</p><p class="hint">Rows can go in any order. Fix the red boxes and check again as many times as you want.</p></div>'+
+      rows+
+      '<p class="tsum" id="tsum" aria-live="polite" hidden></p>'+
+      '<div class="actions"><button class="btn primary" data-act="tcheck">Check my table</button><button class="btn ghost" data-act="tclear" id="t-clear">Clear</button></div></div>';
+  }
+  function checkTable(){
+    const vals=[0,1,2].map(s=>{ const o={}; COLS.forEach(c=>o[c]=$('#t-'+s+'-'+c).value); return o; });
+    const assign=[null,null,null], used=new Set();
+    for(const col of COLS) for(let s=0;s<3;s++){
+      if(assign[s]!==null || !vals[s][col].trim()) continue;
+      for(let r=0;r<3;r++){ if(!used.has(r) && grade(col,r,vals[s][col]).ok){ assign[s]=r; used.add(r); break; } }
+    }
+    for(let s=0;s<3;s++) if(assign[s]===null){ const r=!used.has(s)?s:[0,1,2].find(x=>!used.has(x)); assign[s]=r; used.add(r); }
+    let right=0;
+    for(let s=0;s<3;s++){
+      const row=ROWS[assign[s]], tr=$('#trow-'+s); let rowRight=0;
+      tr.style.setProperty('--c','var(--'+row.hl+')');
+      $('#ttag-'+s).innerHTML='<span class="hl '+row.hl+'">the '+row.color+' row</span>';
+      COLS.forEach(col=>{
+        const inp=$('#t-'+s+'-'+col), f=inp.closest('.field'), g=grade(col,assign[s],inp.value);
+        f.classList.remove('ok','bad'); f.classList.add(g.ok?'ok':'bad');
+        f.querySelector('.fb').innerHTML=fbHTML(g,row,col);
+        if(g.ok){ right++; rowRight++; }
+      });
+      const th=$('#tthink-'+s);
+      if(rowRight<4){ th.innerHTML='<h3>How to think it</h3><ol>'+row.think.map(t=>'<li>'+t+'</li>').join('')+'</ol>'; th.hidden=false; }
+      else th.hidden=true;
+    }
+    parkKeys();
+    const sum=$('#tsum'); sum.hidden=false;
+    sum.textContent=right===12?'12 of 12 boxes. Perfect table!':right+' of 12 boxes right. Fix the red ones and check again.';
+    if(right===12){ play('win'); confetti(); } else play('bad');
+    sum.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+  }
+
+  /* ===== Tap to reveal ===== */
+  let rvMode='rad', rvHidden=[], rvGiven=[];
+  function setRevealMode(mode){
+    rvMode=mode;
+    if(mode==='rad'){ rvGiven=ROWS.map(()=>0); rvHidden=ROWS.map(()=>[false,true,true,true]); }
+    else if(mode==='mix'){ rvGiven=ROWS.map(()=>Math.random()*4|0); rvHidden=rvGiven.map(k=>[0,1,2,3].map(j=>j!==k)); }
+    else { rvGiven=ROWS.map(()=>-1); rvHidden=ROWS.map(()=>[false,false,false,false]); }
+    renderReveal();
+  }
+  function rvCountText(){
+    if(rvMode==='all') return 'Everything is showing. Pick a mode above to hide them again.';
+    const left=rvHidden.flat().filter(Boolean).length, shown=9-left;
+    return left ? shown+' of 9 revealed' : 'All 9 revealed. Tap Mix it up for a fresh set.';
+  }
+  function renderReveal(){
+    const modeBtn=(m,label)=>'<button class="btn ghost small" data-act="rvmode" data-mode="'+m+'" aria-pressed="'+(rvMode===m)+'">'+label+'</button>';
+    const rows=ROWS.map((row,i)=>
+      '<div class="trow" style="--c:var(--'+row.hl+')"><div class="trowhead"><span class="rowname">Row '+(i+1)+'</span></div>'+
+      '<div class="tgrid">'+COLS.map((col,j)=>{
+        const lab='<span class="lab hl hl-green">'+COLHEAD[col]+'</span>';
+        if(rvHidden[i][j]) return '<div class="field" id="rv-'+i+'-'+j+'">'+lab+'<button class="rvbtn" data-act="reveal" data-r="'+i+'" data-c="'+j+'" aria-label="Reveal '+COLNAME[col]+' for row '+(i+1)+'">Tap to reveal</button></div>';
+        if(rvGiven[i]===j) return '<div class="field given">'+lab+'<div class="gv"><span>'+fmt(row[col])+'</span><span class="tag">Given</span></div></div>';
+        return '<div class="field">'+lab+'<div class="rvval">'+fmt(row[col])+'</div></div>';
+      }).join('')+'</div></div>'
+    ).join('');
+    $('#view-reveal').innerHTML=
+      '<div class="card"><div class="clue"><p class="eyebrow">Quick recall</p><p class="lead">Say each blank out loud, then tap to check yourself.</p><p class="hint">No typing. Good for a fast warm-up before the other modes.</p></div>'+
+      '<div class="modes" role="group" aria-label="What to hide">'+modeBtn('rad','Radical given')+modeBtn('mix','Mix it up')+modeBtn('all','Reveal all')+'</div>'+
+      rows+
+      '<p class="score" id="rvcount" aria-live="polite">'+rvCountText()+'</p></div>';
+  }
+  function revealCell(i,j){
+    if(!rvHidden[i][j]) return;
+    rvHidden[i][j]=false;
+    const col=COLS[j], cell=$('#rv-'+i+'-'+j);
+    cell.querySelector('.rvbtn').outerHTML='<div class="rvval fresh">'+fmt(ROWS[i][col])+'</div>';
+    $('#rvcount').textContent=rvCountText();
+    play(rvHidden.flat().some(Boolean)?'tick':'win');
+  }
+
+  /* ===== Cheat sheet ===== */
+  function renderSheet(){
+    const derive=
+      '<div class="card derive"><h3>All three come from one identity</h3><p class="root">'+fmt('sin²θ + cos²θ = 1')+'</p><ol>'+
+      '<li><span class="step">Subtract sin²θ from both sides</span>'+m('1 − sin²θ = cos²θ')+'</li>'+
+      '<li><span class="step">Divide every term of the original by cos²θ</span>'+m('tan²θ + 1 = sec²θ')+'</li>'+
+      '<li><span class="step">Subtract 1 from both sides of that</span>'+m('sec²θ − 1 = tan²θ')+'</li></ol></div>';
+    const rows=ROWS.map((row,i)=>
+      '<div class="card sheetrow"><div class="trowhead"><span class="rowname"><span class="hl '+row.hl+'">Row '+(i+1)+'</span></span></div>'+
+      '<p class="spot"><b>Spot it:</b> '+row.spot+'</p>'+
+      '<dl>'+COLS.map(c=>'<dt>'+COLHEAD[c]+'</dt><dd>'+fmt(row[c])+'</dd>').join('')+'</dl>'+
+      '<div class="chainwrap"><h3>Why it works</h3><div class="chain">'+row.chain.map((l,k)=>'<span>'+(k?'= ':'')+fmt(l)+'</span>').join('')+'</div></div></div>'
+    ).join('');
+    $('#view-sheet').innerHTML='<div class="fields">'+derive+rows+'</div>';
+  }
+
+  /* ===== tabs ===== */
+  function switchTab(t){
+    parkKeys();
+    $$('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===t)));
+    ['reveal','clue','table','sheet'].forEach(n=>$('#view-'+n).hidden=n!==t);
+    try{ localStorage.setItem('tsd-tab',t); }catch(e){}
+  }
+
+  /* ===== input helpers ===== */
+  function insertAt(inp,text,back){
+    const s=inp.selectionStart??inp.value.length, e=inp.selectionEnd??s;
+    inp.value=inp.value.slice(0,s)+text+inp.value.slice(e);
+    const p=s+text.length-(back||0);
+    try{ inp.setSelectionRange(p,p); }catch(err){}
+    inp.dispatchEvent(new Event('input',{bubbles:true}));
+  }
+  function autoConv(inp){
+    const before=inp.value;
+    const v=before.replace(/\^\s*2/g,'²').replace(/theta/gi,'θ').replace(/sqrt/gi,'√');
+    if(v!==before){
+      const pos=(inp.selectionStart??before.length)-(before.length-v.length);
+      inp.value=v; try{ inp.setSelectionRange(pos,pos); }catch(e){}
+    }
+  }
+
+  document.addEventListener('focusin',e=>{
+    const inp=e.target.closest && e.target.closest('input.mi');
+    if(!inp || inp.readOnly) return;
+    lastInput=inp;
+    if(inp.nextElementSibling!==keybar) inp.insertAdjacentElement('afterend',keybar);
+  });
+  document.addEventListener('input',e=>{
+    const inp=e.target.closest && e.target.closest('input.mi'); if(!inp) return;
+    autoConv(inp);
+    if(inp.id.startsWith('t-')){ const f=inp.closest('.field'); f.classList.remove('ok','bad'); f.querySelector('.fb').innerHTML=''; }
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key!=='Enter') return;
+    const inp=e.target.closest && e.target.closest('input.mi'); if(!inp) return;
+    e.preventDefault();
+    const scope=inp.closest('.card'), list=$$('input.mi',scope).filter(x=>!x.readOnly), i=list.indexOf(inp);
+    if(i>-1 && i<list.length-1) list[i+1].focus();
+    else { const b=$('.btn.primary',scope); if(b) b.click(); }
+  });
+
+  function keyPress(b){ if(!lastInput || lastInput.readOnly) return; insertAt(lastInput,b.dataset.ins,+(b.dataset.back||0)); lastInput.focus(); }
+  keybar.addEventListener('pointerdown',e=>{ const b=e.target.closest('button'); if(!b) return; e.preventDefault(); keyPress(b); });
+  keybar.addEventListener('mousedown',e=>{ if(e.target.closest('button')) e.preventDefault(); });
+  keybar.addEventListener('touchstart',e=>{ if(e.target.closest('button')) e.preventDefault(); },{passive:false});
+  keybar.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; e.preventDefault(); if(e.detail===0) keyPress(b); });
+
+  document.addEventListener('click',e=>{
+    const tb=e.target.closest('[data-tab]'); if(tb){ switchTab(tb.dataset.tab); return; }
+    if(e.target.closest('#snd')){ soundOn=!soundOn; setSoundLabel(); try{ localStorage.setItem('tsd-sound',soundOn?'on':'off'); }catch(err){} if(soundOn) play('ok'); return; }
+    const b=e.target.closest('[data-act]'); if(!b) return;
+    const act=b.dataset.act;
+    if(act==='check') checkClue();
+    else if(act==='next'){ qi++; if(qi>=round.length){ renderClue(); const all=results.every(r=>r.right===r.total); if(all){ play('win'); confetti(); } } else { renderClue(); const f=$('#view-clue input.mi'); if(f) f.focus(); } }
+    else if(act==='restart') confirmTap(b,'Restart round',newRound);
+    else if(act==='newround') newRound();
+    else if(act==='tcheck') checkTable();
+    else if(act==='tclear') confirmTap(b,'Clear',renderTable);
+    else if(act==='rvmode') setRevealMode(b.dataset.mode);
+    else if(act==='reveal') revealCell(+b.dataset.r,+b.dataset.c);
+  });
+
+  setSoundLabel();
+  newRound();
+  renderTable();
+  renderSheet();
+  setRevealMode('rad');
+  let start='reveal'; try{ start=localStorage.getItem('tsd-tab')||'reveal'; }catch(e){}
+  if(!['reveal','clue','table','sheet'].includes(start)) start='reveal';
+  switchTab(start);
+}
+</script>
+
+<script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+</body></html>
